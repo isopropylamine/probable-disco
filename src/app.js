@@ -1,6 +1,6 @@
 import "./app.css";
 import Letter from "./letter.js";
-import _, { indexOf, set } from "lodash";
+import _, { indexOf } from "lodash";
 import * as React from "react";
 import { useState, useEffect, useRef } from "react";
 import Swap from "./swaps";
@@ -40,6 +40,7 @@ const App = () => {
   const [currentSwap, setCurrentSwap] = useState(null);
   const sortedReference = useRef();
 
+  // eslint-disable react-hooks/exhaustive-deps
   useEffect(() => {
     if (currentSwap !== null && currentSwap < displayArray.length) {
       const copiedArray = [...displayArray];
