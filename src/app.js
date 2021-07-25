@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 import Letter from "./letter.js";
 import _, { indexOf, set } from "lodash";
 import * as React from "react";
