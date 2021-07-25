@@ -85,6 +85,7 @@ const App = () => {
     const arraySlice = CONSECUTIVE_CAPITAL_LETTERS.slice(randomArrayLength);
     setDisplayArray(_.shuffle([...arraySlice, "_"]));
     setSwaps([]);
+    setCurrentSwap(null);
   };
 
   const generateLetters = () => {
