@@ -40,8 +40,8 @@ const App = () => {
   const [currentSwap, setCurrentSwap] = useState(null);
   const sortedReference = useRef();
 
-  // eslint-disable react-hooks/exhaustive-deps
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     if (currentSwap !== null && currentSwap < displayArray.length) {
       const copiedArray = [...displayArray];
 
@@ -60,6 +60,7 @@ const App = () => {
 
       debouncedUpdateSwap();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSwap]);
 
   const getLetterGlow = (letter) => {
