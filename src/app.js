@@ -97,7 +97,7 @@ const App = () => {
       ));
     }
 
-    return "Generate random array, or provide sample array to start!";
+    return "Click generate random array to start!";
   };
 
   const cycleSort = (unsortedArray) => {
