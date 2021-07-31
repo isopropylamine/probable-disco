@@ -39,10 +39,11 @@ const App = () => {
   const [swaps, setSwaps] = useState([]);
   const [currentSwap, setCurrentSwap] = useState(null);
   const sortedReference = useRef();
+  const isAnimating = useRef(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (currentSwap !== null && currentSwap < displayArray.length) {
+    if (currentSwap !== null && currentSwap < displayArray.length && isAnimating.current) {
       const copiedArray = [...displayArray];
 
       if (swaps[currentSwap]) {
@@ -84,6 +85,7 @@ const App = () => {
     const randomArrayLength = Math.random() * (26 - 2) + 2;
     const arraySlice = CONSECUTIVE_CAPITAL_LETTERS.slice(randomArrayLength);
     setDisplayArray(_.shuffle([...arraySlice, "_"]));
+    isAnimating.current = false;
     setSwaps([]);
     setCurrentSwap(null);
   };
@@ -102,6 +104,10 @@ const App = () => {
   };
 
   const cycleSort = (unsortedArray) => {
+    isAnimating.current = false;
+    setSwaps([]);
+    setCurrentSwap(null);
+    
     if (_.isEmpty(unsortedArray) || unsortedArray.length === 1) {
       return unsortedArray;
     }
@@ -153,6 +159,7 @@ const App = () => {
 
       containerIndex++;
     }
+    isAnimating.current = true;
     setSwaps(cycles);
     setCurrentSwap(0);
   };
