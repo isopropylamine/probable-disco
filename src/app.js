@@ -193,6 +193,7 @@ const App = () => {
       if (
         JSON.stringify(displayArray) === JSON.stringify(sortedReference.current)
       ) {
+        isAnimating.current = false
         return (
           <div>
             <h2>{`The containers were sorted in ${swaps.length} ${
